@@ -1,7 +1,7 @@
-# <center>Experiment 1 : Data Wrangling</center>
-## <center> Data Wrangling I</center>
+# <div align="center">Experiment 1 : Data Wrangling</div>
+## <div align="center"> Data Wrangling 1</div>
 
-### <center> Problem Statement </center>
+### <div align="center"> <b>Problem Statement</b> </div>
 
 Perform the following operations using Python on any open source dataset (e.g., data.csv)
 
