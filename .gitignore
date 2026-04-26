@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Not tracking venv folder
+dsbda/
+
 # Distribution / packaging
 .Python
 build/
