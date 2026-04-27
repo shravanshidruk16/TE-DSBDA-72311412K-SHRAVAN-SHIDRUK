@@ -1,4 +1,4 @@
-**<div style='text-align: center; font-size: 48px'><u>Experiment 11 : MapReduce Log File Processing</u></div>**
+# <div style='text-align: center'><u>Experiment 11 : MapReduce Log File Processing</u></div>
 
 ### <div align="center"> Name : Shravan Santosh Shidruk , PRN : 72311412K </div>
 
