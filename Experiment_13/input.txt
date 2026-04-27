@@ -1,0 +1,15 @@
+Apache Spark is a fast and general engine for big data processing
+Spark provides an interface for programming entire clusters with data parallelism
+Apache Spark supports Java Scala Python and R
+Big data analytics is important in modern data science
+Spark is faster than Hadoop because it uses in memory computation
+Apache is open source and Spark is widely used
+data is the new oil in big data analytics
+Spark RDD is immutable and distributed and fault tolerant
+Apache Spark framework supports streaming batch and machine learning
+Scala is the primary language used to write Apache Spark programs
+Hadoop MapReduce is disk based while Spark is memory based
+Spark uses directed acyclic graph for execution planning
+big data requires distributed computing frameworks like Apache Spark
+RDD stands for Resilient Distributed Dataset in Spark
+Spark cluster manager can be YARN standalone or Mesos
