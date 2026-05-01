@@ -24,3 +24,5 @@ public class LogReducer
         result.set(total);
         ctx.write(key, result);
     }
+
+}
