@@ -1,4 +1,4 @@
-# Artificial Intelligence Laboratory Practicals
+# Artificial Intelligence Laboratory Practicals (LP-2)
 
 ## Name: Shravan Shidruk
 ## Subject: Artificial Intelligence
