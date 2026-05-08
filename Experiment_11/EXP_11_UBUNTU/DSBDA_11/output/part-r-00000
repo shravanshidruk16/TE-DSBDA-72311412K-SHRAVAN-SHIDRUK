@@ -1,0 +1,13 @@
+IP_10.0.0.5	2
+IP_10.0.0.99	1
+IP_172.16.0.1	2
+IP_192.168.1.10	2
+STATUS_200	4
+STATUS_404	2
+STATUS_500	1
+URL_/dashboard	1
+URL_/data	1
+URL_/home	2
+URL_/login	1
+URL_/missing	1
+URL_/profile	1
