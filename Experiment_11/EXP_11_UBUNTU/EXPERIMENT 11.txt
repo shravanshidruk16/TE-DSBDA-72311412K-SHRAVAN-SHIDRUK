@@ -1,0 +1,146 @@
+EXPERIMENT 11
+
+Design a distributed application using MapReduce which processes a log file of a system.
+
+1) 192.168.1.10 - alice [10/Apr/2024:10:00:01 +0000] "GET /home HTTP/1.1" 200 2326 : HERE TO KEEP TRACK ONLY ON IP_ADDRESS, STATUS_CODE, ENDPOINTS
+
+2) Hadoop - It is a framework which is used to process very large data using multiple computers together
+
+3) Map Reduce - It is a programming model used in Hadoop for processing large data into two phase : Map Phase (Key-Values Pairs are generated here) , Reduce Phase (Combines Similar key and make the final result)
+==================== LogMapper.java ====================
+
+• Purpose:
+  - Acts as the Mapper phase in Hadoop MapReduce
+  - Reads log file line by line
+  - Converts raw log data into key-value pairs
+
+• Main Functions:
+  - Splits each log line using whitespace
+  - Extracts:
+      → IP Address
+      → URL
+      → HTTP Status Code
+
+• Emits Intermediate Key-Value Pairs:
+      STATUS_200 → 1
+      URL_/home → 1
+      IP_192.168.1.10 → 1
+
+• Important Points:
+  - Mapper does NOT calculate totals
+  - Only generates intermediate output
+  - Runs in parallel on distributed systems
+
+========================================================
+
+==================== LogReducer.java ====================
+
+• Purpose:
+  - Acts as the Reducer phase in Hadoop MapReduce
+  - Receives grouped key-value pairs from Hadoop
+
+• Main Functions:
+  - Hadoop groups same keys automatically
+  - Reducer receives:
+      STATUS_200 → [1,1,1,1]
+
+  - Adds/counts all values
+  - Produces final aggregated result
+
+• Final Output Example:
+      STATUS_200 → 4
+      URL_/home → 2
+
+• Important Points:
+  - Performs actual counting/calculation
+  - Generates final analytics output
+  - Works after Shuffle & Sort phase
+
+=========================================================
+
+==================== LogProcessor.java ====================
+
+• Purpose:
+  - Driver/Main class of Hadoop program
+  - Controls complete MapReduce execution
+
+• Main Functions:
+  - Creates Hadoop job configuration
+  - Connects:
+      → Mapper
+      → Reducer
+
+  - Sets:
+      → Input path
+      → Output path
+      → Output data types
+
+• Controls Entire Workflow:
+      Input File
+          ↓
+        Mapper
+          ↓
+     Shuffle & Sort
+          ↓
+        Reducer
+          ↓
+      Final Output
+
+• Important Points:
+  - Starts Hadoop job execution
+  - Manages complete processing flow
+  - Responsible for job configuration
+
+===========================================================
+
+
+Step 1: Install Java
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+java -version
+
+Step 2: Download and Install Hadoop
+wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+tar -xzf hadoop-3.3.6.tar.gz
+sudo mv hadoop-3.3.6 /usr/local/Hadoop
+
+Step 3: Set Environment Variables
+nano ~/.bashrc
+
+Paste at bottom:
+
+export JAVA_HOME=/usr/lib/jvm/default-java
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+*****Ctrl + 0 then Enter then Ctrl + X (to save and exit the changes)*****
+
+Apply changes:
+
+source ~/.bashrc
+
+Step 4: Verify Hadoop Installation
+hadoop version
+
+Step 5: Create Project Directory
+mkdir logprocessor
+cd logprocessor
+Copy files:
+
+LogMapper.java
+LogReducer.java
+LogProcessor.java
+system.log
+
+Step 6: Compile Java Files ✅ (IMPORTANT FIX)
+javac -classpath $(hadoop classpath) -d . LogMapper.java LogReducer.java LogProcessor.java
+
+Step 7: Create JAR File
+jar -cvf LogProcessor.jar *.class
+
+Step 8: Run Hadoop Job (Local Mode)
+hadoop jar LogProcessor.jar LogProcessor system.log output
+
+Step 9: Display Output
+cat output/part-r-00000
+
+
