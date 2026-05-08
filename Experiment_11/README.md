@@ -64,6 +64,7 @@ export JAVA_HOME=/usr/lib/jvm/default-java
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```
+Ctrl + 0 then Enter then Ctrl + X (to save and exit the changes) 
 
 Apply changes:
 
