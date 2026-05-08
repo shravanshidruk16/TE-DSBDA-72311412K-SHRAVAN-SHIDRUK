@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 MINI PROJECT - CLASSIFY TWEETS/data_science.csv
+MINI PROJECT - MOVIE RECOMMENDATION/movie_dataset.csv
 
 # C extensions
 *.so
